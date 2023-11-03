@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:task_mannager/screens/forget_password_screen.dart';
+import 'package:task_mannager/screens/register_screen.dart';
 import 'package:task_mannager/widgets/background_image.dart';
 
 import '../widgets/decorations_style.dart';
@@ -91,7 +92,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       const Text("Don't have an account"),
                       TextButton(
-                          onPressed: () {}, child: const Text('Sign Up?'))
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const RegisterScreen()));
+                          }, child: const Text('Sign Up?'))
                     ],
                   )
                 ],

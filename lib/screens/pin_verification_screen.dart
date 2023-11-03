@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:task_mannager/screens/set_password_screen.dart';
 import 'package:task_mannager/widgets/background_image.dart';
 import 'package:task_mannager/widgets/reusable_eleveted_button.dart';
 import 'package:task_mannager/widgets/text_style.dart';
@@ -13,8 +13,8 @@ class PinVerificationScreen extends StatefulWidget {
 }
 
 class _PinVerificationScreenState extends State<PinVerificationScreen> {
-
   final TextEditingController pinTEController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,15 +25,23 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Pin Verification', style: pageTitleTextStyle,),
-              const SizedBox(height: 8,),
-              Text('A 6 digits pin has been sent to your email', style: subTitleTextStyle,),
-              const SizedBox(height: 32 ,),
-
+              const Text(
+                'Pin Verification',
+                style: pageTitleTextStyle,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Text(
+                'A 6 digits pin has been sent to your email',
+                style: subTitleTextStyle,
+              ),
+              const SizedBox(
+                height: 32,
+              ),
               PinCodeTextField(
                 length: 6,
                 obscureText: false,
-
                 animationType: AnimationType.fade,
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
@@ -56,22 +64,28 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
                 },
                 onChanged: (value) {
                   print(value);
-
                 },
                 appContext: context,
               ),
+              const SizedBox(
+                height: 16,
+              ),
+              ReusableElevatedButton(
 
-              const SizedBox(height: 16 ,),
-              ReusableElevatedButton(onTap: (){}),
-
-              const SizedBox(height: 24,),
-
+                  onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SetPasswordScreen()));
+              }),
+              const SizedBox(
+                height: 24,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("Don't have an account"),
-                  TextButton(
-                      onPressed: () {}, child: const Text('Sign Up?'))
+                  TextButton(onPressed: () {}, child: const Text('Sign Up?'))
                 ],
               )
             ],
